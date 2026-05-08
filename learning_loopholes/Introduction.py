@@ -19,5 +19,5 @@ print(type(1+3j)) #Complex
 print(type("abcdEfghijk")) #String
 print(type([1, 2, 3])) #List
 print(type({"name": "Abcdefghi"})) #Dictionary
-print(type((9.8, 3.14, 2.7)))
+print(type((9.8, 3.14, 2.7))) #tuples
 print(type({9.8, 3.14, 2.7})) #set 
