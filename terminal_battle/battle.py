@@ -8,6 +8,7 @@
 import random
 import time 
 import sys
+import os
 
 def slow_print(text):
     for character in text:
@@ -64,11 +65,13 @@ boss_art = r"""
                                         
                                         """
 print(boss_art)
+os.system("paplay sounds/kai_into.mp3 &")
 slow_print(f"A revenge hungary wild monster {boss['NameBoss']} has appeared with {boss['BossHP']} health!")
 time.sleep(1.5)
 slow_print(f"Player Stats:  \nName: {player['Name']} \nHP: {player['HP']} \nPotions: {player['Potions']}")
 time.sleep(1.5)
 while True:
+    os.system("paplay sounds/ready_fight.mp3 &")
     slow_print(f"--- NEW TURN ---")
     action = input("Attack OR Heal: ").lower()
 
@@ -108,6 +111,7 @@ while True:
                                                      '---'
         """
         print(attack_art)
+        os.system("paplay sounds/sword_slash.mp3 &")
         slow_print(f"You hit {boss['NameBoss']} with {player_dmg} damage!")
         time.sleep(1.5)
     elif action == "heal":
@@ -133,11 +137,13 @@ while True:
                                                   ▒▒▒▒▒▒▒▒▒▒▒▒ 
                         """
             print(healing_art)
+            os.system("paplay sounds/potion.mp3 &")
             slow_print(f"You healed +30 HP!")
             time.sleep(1)
             slow_print(f"Potions left:  {player['Potions']}")
             time.sleep(1)
     else:
+        os.system("paplay sounds/error.mp3")
         slow_print(f"Umm... That's not possible")
         time.sleep(1)
 
@@ -167,6 +173,7 @@ while True:
                         ⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                            """
         print(boss_attack_art)
+        os.system("paplay sounds/axe_damage.mp3 &")
         slow_print(f"The boss only attacks and deals {boss_dmg} damage!")
         time.sleep(1)
     slow_print(f"Player Stats NEW:  \nName: {player['Name']} \nHP: {player['HP']} \nPotions {player['Potions']}")
@@ -186,6 +193,7 @@ while True:
                                                                     |___/ 
                 """
         print(win_art)
+        os.system("paplay sounds/badass_victory.mp3 &")
         slow_print(f"You defeated the monster! Your Adventure Continues")
         time.sleep(1)
         break
@@ -210,6 +218,7 @@ while True:
                                     ⠀⠀⠀⠀⠈⠙⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         """
         print(game_over_art)
+        os.system("paplay sounds/game_over.mp3 &")
         slow_print(f"You Died... Game Over...")
         time.sleep(1)
         break
