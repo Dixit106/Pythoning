@@ -17,50 +17,7 @@ def slow_print(text):
     print()
 
 def start_battle(player, boss):
-
-    boss_art = r"""
-                                                     ,     .
-                                                    /(     )\               A
-                                               .--.( `.___.' ).--.         /_\
-                                               `._ `%_&%#%$_ ' _.'     /| <___> |\
-                                                  `|(@\*%%/@)|'       / (  |L|  ) \
-                                                   |  |%%#|  |       J d8bo|=|od8b L
-                                                    \ \$#%/ /        | 8888|=|8888 |
-                                                    |\|%%#|/|        J Y8P"|=|"Y8P F
-                                                    | (.".)%|         \ (  |L|  ) /
-                                                ___.'  `-'  `.___      \|  |L|  |/
-                                              .'#*#`-       -'$#*`.       / )|
-                                             /#%^#%*_ *%^%_  #  %$%\    .J (__)
-                                             #&  . %%%#% ###%*.   *%\.-'&# (__)
-                                             %*  J %.%#_|_#$.\J* \ %'#%*^  (__)
-                                             *#% J %$%%#|#$#$ J\%   *   .--|(_)
-                                             |%  J\ `%%#|#%%' / `.   _.'   |L|
-                                             |#$%||` %%%$### '|   `-'      |L|
-                                             (#%%||` #$#$%%% '|            |L|
-                                             | ##||  $%%.%$%  |            |L|
-                                             |$%^||   $%#$%   |            |L|
-                                             |&^ ||  #%#$%#%  |            |L|
-                                             |#$*|| #$%$$#%%$ |\           |L|
-                                             ||||||  %%(@)$#  |\\          |L|
-                                             `|||||  #$$|%#%  | L|         |L|
-                                                  |  #$%|$%%  | ||l        |L|
-                                                  |  ##$H$%%  | |\\        |L|
-                                                  |  #%%H%##  | |\\|       |L|
-                                                  |  ##% $%#  | Y|||       |L|
-                                                  J $$#* *%#% L  |E/
-                                                  (__ $F J$ __)  F/
-                                                  J#%$ | |%%#%L
-                                                  |$$%#& & %%#|
-                                                  J##$ J % %%$F
-                                                   %$# * * %#&
-                                                   %#$ | |%#$%
-                                                   *#$%| | #$*
-                                                  /$#' ) ( `%%\
-                                                 /#$# /   \ %$%\
-                                                ooooO'     `Ooooo
-
-                                            """
-    print(boss_art)
+    print(boss["Art"])
     os.system("paplay sounds/kai_into.mp3 &")
     slow_print(f"A revenge hungary wild monster {boss['NameBoss']} has appeared with {boss['BossHP']} health!")
     time.sleep(1.5)
@@ -219,8 +176,65 @@ def start_battle(player, boss):
             time.sleep(1)
             break
 
+kai_art = r"""
+                                                     ,     .
+                                                    /(     )\               A
+                                               .--.( `.___.' ).--.         /_\
+                                               `._ `%_&%#%$_ ' _.'     /| <___> |\
+                                                  `|(@\*%%/@)|'       / (  |L|  ) \
+                                                   |  |%%#|  |       J d8bo|=|od8b L
+                                                    \ \$#%/ /        | 8888|=|8888 |
+                                                    |\|%%#|/|        J Y8P"|=|"Y8P F
+                                                    | (.".)%|         \ (  |L|  ) /
+                                                ___.'  `-'  `.___      \|  |L|  |/
+                                              .'#*#`-       -'$#*`.       / )|
+                                             /#%^#%*_ *%^%_  #  %$%\    .J (__)
+                                             #&  . %%%#% ###%*.   *%\.-'&# (__)
+                                             %*  J %.%#_|_#$.\J* \ %'#%*^  (__)
+                                             *#% J %$%%#|#$#$ J\%   *   .--|(_)
+                                             |%  J\ `%%#|#%%' / `.   _.'   |L|
+                                             |#$%||` %%%$### '|   `-'      |L|
+                                             (#%%||` #$#$%%% '|            |L|
+                                             | ##||  $%%.%$%  |            |L|
+                                             |$%^||   $%#$%   |            |L|
+                                             |&^ ||  #%#$%#%  |            |L|
+                                             |#$*|| #$%$$#%%$ |\           |L|
+                                             ||||||  %%(@)$#  |\\          |L|
+                                             `|||||  #$$|%#%  | L|         |L|
+                                                  |  #$%|$%%  | ||l        |L|
+                                                  |  ##$H$%%  | |\\        |L|
+                                                  |  #%%H%##  | |\\|       |L|
+                                                  |  ##% $%#  | Y|||       |L|
+                                                  J $$#* *%#% L  |E/
+                                                  (__ $F J$ __)  F/
+                                                  J#%$ | |%%#%L
+                                                  |$$%#& & %%#|
+                                                  J##$ J % %%$F
+                                                   %$# * * %#&
+                                                   %#$ | |%#$%
+                                                   *#$%| | #$*
+                                                  /$#' ) ( `%%\
+                                                 /#$# /   \ %$%\
+                                                ooooO'     `Ooooo
+
+                                            """
+
 player = {"Name": input("Enter Your Name: "), "HP": 100, "Potions": 3}
 
-boss = {"NameBoss": "Kai", "BossHP": 200}
+boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art }
+keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250}
 
+slow_print("\n---STAGE 1: THE FOREST---")
 start_battle(player, boss)
+
+
+if player["HP"] > 0:
+    slow_print(f"You rested by a campfire... after defeating {boss['NameBoss']}")
+    slow_print(f"Your HP is restored to 100 and you also got 3 Potions as a reward")
+    player["HP"] = 100
+    player["Potions"] = player["Potions"] + 3
+    slow_print(f"HP = 100 and Potions = {player['Potions']} ")
+
+slow_print("---STAGE 2: THE GATEWAY---")
+start_battle(player, keeper)    
+
