@@ -319,47 +319,55 @@ def start_battle(player, boss):
     while True:
         os.system("paplay sounds/ready_fight.mp3 &")
         slow_print(f"--- NEW TURN ---")
-        action = input("Attack OR Heal: ").lower()
+        action = input("Attack OR Heal: ").lower().strip()
 
         if action == "attack":
-            player_dmg = random.randint(15,40)
-            boss["BossHP"] = boss["BossHP"] - player_dmg
-            attack_art = r"""
+            hesitation_roll = random.randint(1,100)
 
-                                                            (            
-                                                          '    }      
-                                                        (    '      
-                                                       '      (   
-                                                        )  |    ) 
-                                                      '   /|\    `
-                                                     )   / | \  ` )   
-                                                    {    | | |  {   
-                                                   }     | | |  .
-                                                    '    | | |    )
-                                                   (    /| | |\    .
-                                                    .  / | | | \  (
-                                                  }    \ \ | / /  .        
-                                                   (    \ `-' /    }
-                                                   '    / ,-. \    ' 
-                                                    }  / / | \ \  }
-                                                   '   \ | | | /   } 
-                                                    (   \| | |/  (
-                                                      )  | | |  )
-                                                      .  | | |  '
-                                                         J | L
-                                                   /|    J_|_L    |\
-                                                   \ \___/ o \___/ /
-                                                    \_____ _ _____/
-                                                          |-|
-                                                          |-|
-                                                          |-|
-                                                         ,'-'.
-                                                         '---'
-            """
-            print(attack_art)
-            os.system("paplay sounds/sword_slash.mp3 &")
-            slow_print(f"You hit {boss['NameBoss']} with {player_dmg} damage!")
-            time.sleep(1.5)
+            if hesitation_roll <= boss["Hesitation"]:
+                os.system("paplay sounds/heartbeat.mp3 &")
+                slow_print("You look into her eyes and your hands shake... You hesitate!")
+                slow_print("You deal 0 damage!")
+                time.sleep(1.5)
+            elif hesitation_roll > boss["Hesitation"]:
+                player_dmg = random.randint(15,40)
+                boss["BossHP"] = boss["BossHP"] - player_dmg
+                attack_art = r"""
+   
+                                                               (            
+                                                             '    }      
+                                                           (    '      
+                                                          '      (   
+                                                           )  |    ) 
+                                                         '   /|\    `
+                                                        )   / | \  ` )   
+                                                       {    | | |  {   
+                                                      }     | | |  .
+                                                       '    | | |    )
+                                                      (    /| | |\    .
+                                                       .  / | | | \  (
+                                                     }    \ \ | / /  .        
+                                                      (    \ `-' /    }
+                                                      '    / ,-. \    ' 
+                                                       }  / / | \ \  }
+                                                      '   \ | | | /   } 
+                                                       (   \| | |/  (
+                                                         )  | | |  )
+                                                         .  | | |  '
+                                                            J | L
+                                                      /|    J_|_L    |\
+                                                      \ \___/ o \___/ /
+                                                       \_____ _ _____/
+                                                             |-|
+                                                             |-|
+                                                             |-|
+                                                            ,'-'.
+                                                            '---'
+                """
+                print(attack_art)
+                os.system("paplay sounds/sword_slash.mp3 &")
+                slow_print(f"You hit {boss['NameBoss']} with {player_dmg} damage!")
+                time.sleep(1.5)
         elif action == "heal":
             if player["Potions"] > 0:
                 player["HP"] = player["HP"] + 30
@@ -394,7 +402,7 @@ def start_battle(player, boss):
             time.sleep(1)
 
         if boss["BossHP"] > 0:
-            boss_dmg = random.randint(10,25)
+            boss_dmg = random.randint(boss['MinDmg'], boss['MaxDmg'])
             player["HP"] = player["HP"] - boss_dmg            
             print(boss["Attack_Art"])
             os.system(f"paplay {boss['Attack_Sound']} &")
@@ -725,9 +733,9 @@ lover_attack = r"""
                 """
 player = {"Name": input("Enter Your Name: "), "HP": 100, "Potions": 3}
 
-boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art, "Attack_Art": kai_attack, "Attack_Sound": "sounds/axe_damage.mp3", "Hesitation": 0 }
-keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0}
-lover = {"NameBoss": "Lover", "BossHP": 300, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40}
+boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art, "Attack_Art": kai_attack, "Attack_Sound": "sounds/axe_damage.mp3", "Hesitation": 0, "MinDmg":10, "MaxDmg":25}
+keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0, "MinDmg":15 , "MaxDmg":30}
+lover = {"NameBoss": "Lover", "BossHP": 220, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40, "MinDmg": 5, "MaxDmg":15}
 
 slow_print("\n---STAGE 1: THE FOREST---")
 start_battle(player, boss)
@@ -825,3 +833,14 @@ if player["HP"] > 0:
     player["Potions"] = player["Potions"] + 4
     slow_print(f"HP = 100 and Potions = {player['Potions']} ")
     time.sleep(3)
+
+#The Final Battle:-
+slow_print(f"You Entered Final Boss Chamber, you saw a lady standing in front of you")
+slow_print(f"You went silent, unable to move and confused. You finally asked where is my lover and who are you?")
+slow_print(f"The Lady replied: Everything is right in front of you! Your Lover, Your Enemy, Death... Everything")
+slow_print(f"You focused on her face and your body shivered? You asked: Was this all an act!")
+slow_print(f"She replied: So you have finally figured it out huh!. You humans have one big strenght and one big weakness... unfortunatly both of them are same. Your fellings.")
+slow_print(f"I have used this trick countless times on countless warriors who were said to be the strongest... but they were weak and thanks to that I still stand here using the same trick and will continue using it.")
+slow_print(f"You replied in Anger: this will be the last time!")
+slow_print(f"----The End Game----")
+start_battle(player, lover)
