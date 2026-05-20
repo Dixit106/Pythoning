@@ -428,7 +428,7 @@ def start_battle(player, boss):
             os.system("paplay sounds/badass_victory.mp3 &")
             slow_print(f"You defeated the monster! Your Adventure Continues")
             time.sleep(1)
-            break
+            sys.exit
 
         elif player["HP"] <= 0:
             game_over_art = r"""
@@ -453,7 +453,7 @@ def start_battle(player, boss):
             os.system("paplay sounds/game_over.mp3 &")
             slow_print(f"You Died... Game Over...")
             time.sleep(1)
-            break
+            sys.exit
 
 kai_art = r"""
                                                      ,     .
@@ -734,7 +734,7 @@ lover_attack = r"""
 player = {"Name": input("Enter Your Name: "), "HP": 100, "Potions": 3}
 
 boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art, "Attack_Art": kai_attack, "Attack_Sound": "sounds/axe_damage.mp3", "Hesitation": 0, "MinDmg":10, "MaxDmg":25}
-keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0, "MinDmg":15 , "MaxDmg":30}
+keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0, "MinDmg":10 , "MaxDmg":25}
 lover = {"NameBoss": "Lover", "BossHP": 220, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40, "MinDmg": 5, "MaxDmg":15}
 
 slow_print("\n---STAGE 1: THE FOREST---")
@@ -835,12 +835,20 @@ if player["HP"] > 0:
     time.sleep(3)
 
 #The Final Battle:-
+time.sleep(3)
 slow_print(f"You Entered Final Boss Chamber, you saw a lady standing in front of you")
+time.sleep(3)
 slow_print(f"You went silent, unable to move and confused. You finally asked where is my lover and who are you?")
+time.sleep(3)
 slow_print(f"The Lady replied: Everything is right in front of you! Your Lover, Your Enemy, Death... Everything")
+time.sleep(3)
 slow_print(f"You focused on her face and your body shivered? You asked: Was this all an act!")
+time.sleep(3)
 slow_print(f"She replied: So you have finally figured it out huh!. You humans have one big strenght and one big weakness... unfortunatly both of them are same. Your fellings.")
+time.sleep(3)
 slow_print(f"I have used this trick countless times on countless warriors who were said to be the strongest... but they were weak and thanks to that I still stand here using the same trick and will continue using it.")
+time.sleep(3)
 slow_print(f"You replied in Anger: this will be the last time!")
+time.sleep(3)
 slow_print(f"----The End Game----")
 start_battle(player, lover)
