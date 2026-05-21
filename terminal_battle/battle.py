@@ -426,7 +426,7 @@ def start_battle(player, boss):
                     """
             print(win_art)
             os.system("paplay sounds/badass_victory.mp3 &")
-            slow_print(f"You defeated the monster! Your Adventure Continues")
+            slow_print(boss['Win_Message'])
             time.sleep(1)
             break
         
@@ -733,9 +733,9 @@ lover_attack = r"""
                 """
 player = {"Name": input("Enter Your Name: "), "HP": 100, "Potions": 3}
 
-boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art, "Attack_Art": kai_attack, "Attack_Sound": "sounds/axe_damage.mp3", "Hesitation": 0, "MinDmg":10, "MaxDmg":25}
-keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0, "MinDmg":10 , "MaxDmg":25}
-lover = {"NameBoss": "Lover", "BossHP": 220, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40, "MinDmg": 5, "MaxDmg":15}
+boss = {"NameBoss": "Kai", "BossHP": 200, "Art": kai_art, "Attack_Art": kai_attack, "Attack_Sound": "sounds/axe_damage.mp3", "Hesitation": 0, "MinDmg":10, "MaxDmg":25, "Win_Message":"You WON! Advanture Continues"}
+keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_art, "Attack_Art": kepper_attack, "Attack_Sound": "sounds/claw_attack.mp3", "Hesitation": 0, "MinDmg":10 , "MaxDmg":25, "Win_Message":"You WON! Advanture Continues"}
+lover = {"NameBoss": "Lover", "BossHP": 220, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40, "MinDmg": 5, "MaxDmg":15, "Win_Message":"You broke the loop! You WON The Game!, Every Soul avare of this thanks you now"}
 
 slow_print("\n---STAGE 1: THE FOREST---")
 start_battle(player, boss)
