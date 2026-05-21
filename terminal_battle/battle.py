@@ -16,6 +16,24 @@ def slow_print(text):
         time.sleep(0.04)
     print()
 
+def ask_to_continue():
+    while True:
+        choice = input("\n Do you wish to move forward (yes/no): ").lower.strip()
+
+        if choice == "yes":
+            slow_print("You focued hard and step forward...")
+            time.sleep(1)
+            break
+
+        elif choice == "no":
+            slow_print("You decided to walk away. Your adventure ends here.")
+            os.system("paplay sounds/game_over.mp3 &")
+            time.sleep(2)
+            break
+
+        else:
+            print("Please type 'yes' or 'no'.")    
+
 slow_print(f"You and your lover lived in a peacefull cozy village. You had everything you could dream of in your life.")
 os.system("paplay sounds/village_intro.mp3 &")
 time.sleep(2)
@@ -738,6 +756,7 @@ keeper = {"NameBoss": "Keeper(real name unknown)", "BossHP": 250, "Art": keeper_
 lover = {"NameBoss": "Lover", "BossHP": 220, "Art": lover_art, "Attack_Art": lover_attack, "Attack_Sound": "sounds/lover_attack.mp3", "Hesitation": 40, "MinDmg": 5, "MaxDmg":15, "Win_Message":"You broke the loop! You WON The Game!, Every Soul avare of this thanks you now"}
 
 slow_print("\n---STAGE 1: THE FOREST---")
+ask_to_continue()
 start_battle(player, boss)
 
 
@@ -787,6 +806,7 @@ if player["HP"] > 0:
     time.sleep(3)
 
     slow_print("---STAGE 2: THE GATEWAY---")
+    ask_to_continue()
     start_battle(player, keeper)    
 
 if player["HP"] > 0:
@@ -851,5 +871,6 @@ if player["HP"] > 0:
     slow_print(f"You replied in Anger: this will be the last time!")
     time.sleep(3)
     slow_print(f"----The End Game----")
+    ask_to_continue()
     start_battle(player, lover)
     
