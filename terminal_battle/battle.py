@@ -18,7 +18,7 @@ def slow_print(text):
 
 def ask_to_continue():
     while True:
-        choice = input("\n Do you wish to move forward (yes/no): ").lower.strip()
+        choice = input("\n Do you wish to move forward (yes/no): ").lower().strip()
 
         if choice == "yes":
             slow_print("You focued hard and step forward...")
@@ -33,6 +33,57 @@ def ask_to_continue():
 
         else:
             print("Please type 'yes' or 'no'.")    
+
+def main_menu():
+    os.system("clear")
+
+    main_menu_art = r"""
+$$$$$$$$\                                $$\                     $$\        $$$$$$$\             $$\     $$\     $$\           
+\__$$  __|                               \__|                    $$ |       $$  __$$\            $$ |    $$ |    $$ |          
+   $$ | $$$$$$\   $$$$$$\  $$$$$$\$$$$\  $$\ $$$$$$$\   $$$$$$\  $$ |       $$ |  $$ | $$$$$$\ $$$$$$\ $$$$$$\   $$ | $$$$$$\  
+   $$ |$$  __$$\ $$  __$$\ $$  _$$  _$$\ $$ |$$  __$$\  \____$$\ $$ |       $$$$$$$\ | \____$$\\_$$  _|\_$$  _|  $$ |$$  __$$\ 
+   $$ |$$$$$$$$ |$$ |  \__|$$ / $$ / $$ |$$ |$$ |  $$ | $$$$$$$ |$$ |       $$  __$$\  $$$$$$$ | $$ |    $$ |    $$ |$$$$$$$$ |
+   $$ |$$   ____|$$ |      $$ | $$ | $$ |$$ |$$ |  $$ |$$  __$$ |$$ |       $$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$\ $$ |$$   ____|
+   $$ |\$$$$$$$\ $$ |      $$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$$ |$$ |       $$$$$$$  |\$$$$$$$ | \$$$$  |\$$$$  |$$ |\$$$$$$$\ 
+   \__| \_______|\__|      \__| \__| \__|\__|\__|  \__| \_______|\__|$$$$$$\\_______/  \_______|  \____/  \____/ \__| \_______|
+                                                                     \______|                                                  
+                                                                                                                               
+                                                                                                                               
+
+
+
+
+    """        
+    print(main_menu_art)
+
+    while True:
+        print("\n=== MAIN MENU ===")
+        print("play")
+        print("tips(read once before playing for best experience)")
+        print("exit")
+
+        choice = input("\nEnter your choice, play, tips, exit : ").lower().strip()
+        if choice == "play":
+            os.system("clear")
+            break
+
+        elif choice == "tips":
+            print("1.Do not press unnecessary buttons when text is being loaded")
+            print("2.Type commands which are in given option, like attack or heal")
+            print("3.Some bosses strick the body and some will strick mind, be ready for that")
+            print("4. CTRL+C should work to forcefully stop game in terminal")
+            print("----Hopefully You Enjoy This Small Game----")
+            time.sleep(2)
+
+        elif choice == "exit":
+            print("Closing game... You did not like it perhaps?... GoodBye")
+            sys.exit()
+
+        else:
+            print("Invalid choice. Choose what's given!, You can use your creativity on a drawing sheet.")
+
+
+main_menu()
 
 slow_print(f"You and your lover lived in a peacefull cozy village. You had everything you could dream of in your life.")
 os.system("paplay sounds/village_intro.mp3 &")
