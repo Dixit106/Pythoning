@@ -33,7 +33,7 @@ If you play this game, it might look like a normal game, but if you look at the 
 
 **Game Demo Video:**
 
-[![Terminal_Battle Gameplay Demo](ss1.png))](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)]
+[![Terminal_Battle Gameplay Demo](ss1.png))](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
 
 
 
@@ -87,7 +87,7 @@ python battle.py
 git clone https://github.com/Dixit106/Pythoning
 ```
 
-2. Go into the folder:
+2. Go into the folder(ignore learning loopholes folder):
 
 ```Bash
 cd Pythoning
