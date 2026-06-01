@@ -10,9 +10,14 @@ If you play this game, it might look like a normal game, but if you look at the 
 # Built With
 
 **Love**: Humans naturally have this but they keep forgetting its power as they grow up.
+
 **Python**: The core programming language.
+
 **Built-in Modules**: os, time, random, and sys for the engine logic and pacing.
+
 **Linux / PulseAudio (paplay)**: For the synced audio and background music.
+
+
 
 
 ***Images***
@@ -26,7 +31,7 @@ If you play this game, it might look like a normal game, but if you look at the 
 
 
 
-**Game Demo Video**
+**Game Demo Video:**
 
 [![Terminal_Battle Gameplay Demo](ss1.png))](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
 
