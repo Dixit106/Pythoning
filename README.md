@@ -33,7 +33,7 @@ If you play this game, it might look like a normal game, but if you look at the 
 
 **Game Demo Video:**
 
-[![Terminal_Battle Gameplay Demo](ss1.png))](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
+[![Terminal_Battle Gameplay Demo](ss1.png))](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)]
 
 
 
@@ -75,25 +75,30 @@ This game uses custom audio and terminal graphics, so it is designed specificall
 
 3. Extract the folder, open your terminal inside that folder, and run:
 
-Bash
+```Bash
 python battle.py
+```
 
 
 **Option 2**
 **Clone the repository:**
 
-Bash
+```Bash
 git clone https://github.com/Dixit106/Pythoning
+```
 
 2. Go into the folder:
 
-Bash
+```Bash
 cd Pythoning
+```
 
-Bash
+```Bash
 cd terminal_battle
+```
 
 3. Start The Main Script
 
-Bash
+```Bash
 python battle.py
+```
