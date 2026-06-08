@@ -71,12 +71,15 @@ This game uses custom audio and terminal graphics, so it is designed specificall
 
 1. Go to the Releases tab on the right side of this GitHub page.
 
-2. Download the latest .zip file.
+2. Download the latest linux binary file.
 
-3. Extract the folder, open your terminal inside that folder, and run:
+3. Open the folder where you downloaded this file(probably Downloads) inside terminal:
 
 ```Bash
-python battle.py
+chmod +x battle
+```
+```Bash
+./battle
 ```
 
 
